@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #ffe2c5;
+  --color: #808080;
+}
+.layout {
+  display: grid;
+  grid-auto-flow: row;
+  font-family: sans-serif;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  max-width: 100%;
+  background: padding-box center / contain  no-repeat url('../../assets/landing.png');
+  /* background-clip: border-box; */
+
+  background: 
+  radial-gradient(circle, transparent 40%, var(--color-v) 88%),
+  linear-gradient(to right, var(--color), var(--color)),
+  var(--image2);
+background-position: center center;
+background-size: auto;
+background-blend-mode: 
+  var(--blend-top, normal),
+  var(--blend-bottom, difference),
+  normal;
+
+/* --image: url(https://images.unsplash.com/photo-1519522800923-7999b95cb3c6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=81c09a0eae279992234d18e52c8857fa); */
+--image2: url('../../assets/landing3.png');
+
+--color-v: black;
+--color: grey; 
+/* hsla(343,100%,50%,.5); */
+
+flex: 1;
+width: 100vw;
+}
+
+.dialog,
+.layout > * {
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero,
+.hero img {
+  max-width: 100%;
+  /* width: clamp(20em, 60em,100%);
+  height: clamp(20em, 60em,100%); */
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
+  object-fit: scale-down;
+}
+.content {
+  flex-flow: column nowrap;
+  gap: 4em;
+  background-color: black;
+  width: max-content;
+  height: max-content;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color);
+  /* background-color: rgb(255, 230, 204); */
+  /* background-color: rgb(217, 146, 104);
+  background-color: rgb(224, 165, 123); */
+  overflow-y: auto;
+}
+.content h1 {
+  margin: 2em;
+}
+.dialog {
+  box-shadow: 0 0 30px var(--shadow-medium);
+  margin: 1em;
+  flex-flow: column nowrap;
+  line-height: 2em;
+  padding: 1ch;
+}
+
+.content p,
+.content h1 {
+  font-weight: 300;
+}
+
+.content p {
+  font-style: italic;
+  font-weight: 300;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.dialog button {
+  border: 1px solid seagreen;
+  padding: 0 2ch;
+  min-width: 8em;
+}
+.dialog > input {
+  width: clamp(5ch, 15ch, 30ch);
+}
+@media screen and (min-width: 40em) {
+  .layout {
+    /* grid-template-columns: 1fr 1fr; */
+    grid-auto-flow: column;
+  }
+}
+@media screen and (min-width: 60em) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dialog {
+    flex-flow: row nowrap;
+    line-height: 2em;
+    border-radius: 4em;
+    width: min-content;
+  }
+}
+@media (prefers-color-scheme: dark) {
+:root {
+   --color: #eee;
+   --bg-color: inherit;  
+  }
+  .layout {
+    backdrop-filter: grayscale(100%) brightness(0.3);
+  }
+}

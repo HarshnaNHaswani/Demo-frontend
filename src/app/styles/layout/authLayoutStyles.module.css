@@ -1,0 +1,130 @@
+:root {
+  --bg-color: #e5e5e5;
+  --color: #000;
+}
+.layout {
+  font-family: sans-serif;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  max-width: 100%;
+  /* background: padding-box center / contain  no-repeat url('../../assets/landing.png'); */
+  --image2: url("../../assets/landing3.png");
+  --color-v: black;
+  --color: #808080; /* hsla(343,100%,50%,.5); */
+
+  background: radial-gradient(circle, transparent 10%, var(--color-v) 88%),
+    linear-gradient(to right, var(--color), var(--color)), var(--image2);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: var(--blend-top, normal),
+    var(--blend-bottom, hard-light), normal;
+  /* flex: 1; */
+}
+
+.layout,
+.dialog,
+.content {
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+/* .hero,
+.hero img {
+  max-width: 100%;
+  width: clamp(20em, 60em,100%);
+  height: clamp(20em, 60em,100%);
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
+  object-fit: scale-down;
+} */
+.content {
+  flex-flow: column nowrap;
+  gap: 4em;
+  background-color: var(--bg-color);
+  color: var(--color);
+  min-width: 35ch;
+  width: max-content;
+  height: max-content;
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -50%); */
+  /* background-color: rgb(255, 230, 204); */
+  /* background-color: rgb(217, 146, 104);
+  background-color: rgb(224, 165, 123); */
+  overflow-y: auto;
+}
+.content h1 {
+  margin: 1em;
+  /* text-decoration: underline; */
+  font-family:serif;
+}
+.dialog {
+  box-shadow: 0 0 30px var(--shadow-dark);
+  margin: 1em;
+  flex-flow: column nowrap;
+  line-height: 2em;
+  padding: 1ch;
+}
+
+.content p,
+.content h1 {
+  /* font-weight: 300; */
+}
+
+.content p {
+  font-style: italic;
+  font-weight: 300;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.dialog button {
+  border: 1px solid seagreen;
+  padding: 0 2ch;
+  min-width: 8em;
+  height: 2em;
+}
+.dialog > input {
+  width: clamp(5ch, 15ch, 30ch);
+}
+
+@media screen and (min-width: 30em) {
+  /* .layout {
+    grid-template-columns: 1fr 1fr;
+  } */
+
+  .dialog.login {
+    flex-flow: row nowrap;
+    line-height: 2em;
+    border-radius: 4em;
+    width: min-content;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --color: #808080;
+  }
+   .layout {
+    backdrop-filter: grayscale(100%) brightness(0.3);
+    --color-v: black;
+    --color: #888; 
+    background: radial-gradient(circle, transparent 10%, var(--color-v) 96%),
+    linear-gradient(to right, var(--color), var(--color)), var(--image2);
+  background-position: center center;
+  background-size: auto;
+  background-blend-mode: var(--blend-top, normal),
+    var(--blend-bottom, difference), normal;
+  }
+
+  .dialog {
+    box-shadow: 0 0 30px var(--shadow-light);
+  }
+}

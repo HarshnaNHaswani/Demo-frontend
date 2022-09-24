@@ -1,0 +1,34 @@
+import logo from "app/assets/logo.png";
+import layoutStyles  from "app/styles/layout/layoutStyles.module.css";
+import { Dummy } from "app/components/dummy";
+
+// import { Aside } from 'components//Aside';
+export const BaseLayout = () => {
+  return (
+    <div className={`${layoutStyles.layout}`}>
+      <header className={layoutStyles.header}>
+        <img src={logo} className="App-logo" alt="Demo" />
+      </header>
+      <button className='btnHamburger'></button>
+      <nav className={layoutStyles.nav}>
+        SOme Contenter ..............................
+      </nav>
+        <section className={layoutStyles.tabButtons}>
+          <button>Tab 1</button>
+          <button>Tab 2</button>
+        </section>
+      <div className={layoutStyles.tabWrapper}>
+        <main className={layoutStyles.main}>
+          <div>4 7</div>
+          <div>9 2</div>
+        </main>
+        <aside className={layoutStyles.aside}>
+        </aside>
+      </div>
+      <Dummy/>
+      <footer className={layoutStyles.footer}>
+        Developed by Harshna Haswani
+      </footer>
+    </div>
+  )
+}
